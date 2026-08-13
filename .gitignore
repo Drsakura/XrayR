@@ -13,6 +13,8 @@ go.work
 main
 XrayR
 XrayR*
+# XrayR* above is meant for build output; the management script must stay tracked.
+!release/XrayR.sh
 access.log
 error.log
 .lego

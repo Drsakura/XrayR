@@ -5,7 +5,9 @@ on:
       - published
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: xrayr-project/xrayr
+  # Follows whichever repo this workflow runs in, so forks push to their own
+  # namespace instead of failing on the upstream one.
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
