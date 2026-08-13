@@ -6,16 +6,19 @@ import (
 )
 
 type Config struct {
-	ListenIP                  string                           `mapstructure:"ListenIP"`
-	SendIP                    string                           `mapstructure:"SendIP"`
-	UpdatePeriodic            int                              `mapstructure:"UpdatePeriodic"`
-	CertConfig                *mylego.CertConfig               `mapstructure:"CertConfig"`
-	EnableDNS                 bool                             `mapstructure:"EnableDNS"`
-	DNSType                   string                           `mapstructure:"DNSType"`
-	DisableUploadTraffic      bool                             `mapstructure:"DisableUploadTraffic"`
-	DisableGetRule            bool                             `mapstructure:"DisableGetRule"`
-	EnableProxyProtocol       bool                             `mapstructure:"EnableProxyProtocol"`
-	EnableFallback            bool                             `mapstructure:"EnableFallback"`
+	ListenIP             string             `mapstructure:"ListenIP"`
+	SendIP               string             `mapstructure:"SendIP"`
+	UpdatePeriodic       int                `mapstructure:"UpdatePeriodic"`
+	CertConfig           *mylego.CertConfig `mapstructure:"CertConfig"`
+	EnableDNS            bool               `mapstructure:"EnableDNS"`
+	DNSType              string             `mapstructure:"DNSType"`
+	DisableUploadTraffic bool               `mapstructure:"DisableUploadTraffic"`
+	DisableGetRule       bool               `mapstructure:"DisableGetRule"`
+	EnableProxyProtocol  bool               `mapstructure:"EnableProxyProtocol"`
+	EnableFallback       bool               `mapstructure:"EnableFallback"`
+	// Deprecated: no-op since xray-core v1.260327.0 removed IVCheck from the
+	// server config. Dynamically added users never set it anyway. Kept so that
+	// existing config.yml files keep loading.
 	DisableIVCheck            bool                             `mapstructure:"DisableIVCheck"`
 	DisableSniffing           bool                             `mapstructure:"DisableSniffing"`
 	AutoSpeedLimitConfig      *AutoSpeedLimitConfig            `mapstructure:"AutoSpeedLimitConfig"`
